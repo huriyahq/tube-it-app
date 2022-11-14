@@ -24,14 +24,14 @@
             <!-- Everything in search-options div will be hidden when submit-btn is clicked. -->
             <div id="search-options" class="form__options">
                 <!-- Origin dropdown is visible from the start. -->
-                <select name="origin" class="dropdown" id="origin-list" form="search-form">
+                <select name="origin" class="form__dropdown" id="origin-list" form="search-form">
                     <option value="" data-naptan-id="" data-station-naptan="" data-line-id="" selected hidden>
                         Select Origin
                     </option> 
                 </select>
 
                 <!-- Destination dropdown hidden by default. JS display it after origin has been selected. -->
-                <select name="destination" class="dropdown" id="destination-list" form="search-form" hidden>
+                <select name="destination" class="form__dropdown" id="destination-list" form="search-form" hidden>
                     <option value="" data-naptan-id="" data-station-naptan="" data-line-id="" selected hidden>
                         Select Destination
                     </option> 
@@ -46,7 +46,6 @@
                 Reset
             </button>
         </form>
-
     </main>
 
     <!-- import axios library to make http requests -->

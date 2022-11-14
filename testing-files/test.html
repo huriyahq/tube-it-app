@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing App</title>
+</head>
+<body>
+    <h1>TFL App</h1>
+    <div id="display-text">
+
+    </div>
+    <div>
+        <form id="search-form">
+            <select name="origin" id="origin-list" form="search-form">
+                <option value="origin" disabled>Origin station</option>
+
+                
+            </select>
+            <!-- Select destination to show up after origin has been selected -->
+            <select class="hide" name="destination" id="destination-list" form="search-form">
+                <option value="destination" disabled>Destination station</option>
+            </select>
+            <!-- Submit button to show up after origin and destination have been selected -->
+            <button class="hide" id="submit-search">Click</button>
+        </form>
+    </div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+<script type="module" src="./testData.js"></script>
+</body>
+</html>

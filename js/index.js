@@ -2,9 +2,10 @@ import { populateDD } from "./helpers/populateDD.js";
 import { onSubmit } from "./helpers/onSubmit.js";
 // Imported functions listed above this comment.
 
-// Get the origin dropdown list and destination dropdown list to pass as arguments.
+// Get origin dropdown list and destination dropdown list to pass as arguments, get submit button.
 const originDD = document.getElementById("origin-list");
 const destinationDD = document.getElementById("destination-list");
+const submitBtn = document.getElementById("submit-btn");
 
 // Call the populateDD function to get data for the dropdown lists. This will add list of stations to the dropdown list passed as argument.
 populateDD(originDD);
@@ -35,7 +36,7 @@ function setSelection (dropdown) {
         // Show destination dropdown only if the user has selected something from the origin dropdown. Otherwise do nothing (keeps destination dropdown hidden).
         originDD.value ? destinationDD.removeAttribute("hidden") : "";
         
-        // Call onSubmit() if values for origin and destination are not false. Otherwise do nothing (keeps submit button hidden).
+        // Call onSubmit() to display submit button if values for origin and destination are not false. Otherwise do nothing (keeps submit button hidden).
         originDD.value && destinationDD.value ? onSubmit() : "";
     });
 };

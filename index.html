@@ -13,7 +13,7 @@
 <body>
     <h1>TFL App</h1>
 
-    <div>
+    <div id="container-div">
         <!-- Display user selection text in this div -->
         <div id="display-text"></div>
 
@@ -33,13 +33,16 @@
                     Select Destination
                 </option> 
         </select>
-
             <!-- Submit button hidden by default. JS displays it after origin and destination have been selected. -->
             <button class="btn" id="submit-btn" hidden>
                 Click
             </button>
         </form>
     </div>
+    <!-- Reset button hidden by default. JS displays it after journey is displayed. -->
+    <button class="btn" id="reset-btn" hidden>
+        Reset
+    </button>
 
 
     <!-- import axios library to make http requests -->

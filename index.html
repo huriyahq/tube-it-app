@@ -10,16 +10,19 @@
     <link rel="stylesheet" href="./css/styles.css">
     <title>TFL App</title>
 </head>
-<body>
-    <h1>TFL App</h1>
+<body class="body">
 
-    <div>
-        <!-- Display user selection text in this div -->
-        <div id="display-text"></div>
+    <header class="container header">
+        <!-- This is the top section with the logo and header text -->
+        <img src="#" class="header__logo" alt="Tube It logo">
+        <h1 id="display-text" class="header__text">Select an origin station</h1>
+    </header>
 
-        <!-- Form for collecting user origin and destination choices -->
-        <form id="search-form">
-            <div id="search-options">
+    <main class="container main">
+         <!-- Form for collecting user origin and destination choices -->
+         <form id="search-form" class="form">
+            <!-- Everything in search-options div will be hidden when submit-btn is clicked. -->
+            <div id="search-options" class="form__options">
                 <!-- Origin dropdown is visible from the start. -->
                 <select name="origin" class="dropdown" id="origin-list" form="search-form">
                     <option value="" data-naptan-id="" data-station-naptan="" data-line-id="" selected hidden>
@@ -43,9 +46,8 @@
                 Reset
             </button>
         </form>
-    </div>
 
-
+    </main>
 
     <!-- import axios library to make http requests -->
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>

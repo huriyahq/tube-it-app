@@ -1,0 +1,94 @@
+/* Universal */
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Root*/
+:root {
+    --clr-main: #65DEDE;
+    --clr-accent: #DE6565;
+    --clr-white: #FFFFFF;
+    --clr-light: #F6F5F3;
+    --clr-medium: #5A5D6E;
+    --clr-dark: #1C1D22;
+}
+
+/* General */
+.body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Header */
+.header {
+    background-color: var(--clr-main);
+    justify-content: space-between;
+    flex: 1;
+    padding: 2rem
+}
+
+.header__logo {
+    border: 1px solid green;
+    align-self: flex-start;
+
+}
+
+.header__text {
+    border: 1px solid green;
+}
+
+/* Main */
+.main {
+    flex: 2;
+
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid blue;
+}
+
+.form__options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid pink;
+}
+
+.form__dropdown {
+    background-color: var(--clr-light);
+    width: 292px;
+    height: 62px;
+    padding: .5em;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+    font-size: 1rem;
+}
+
+
+/* Typography */
+/* h1 {};
+h2 {};
+h3 {}; */
+
+/* Dropdowns */
+
+/* Buttons */

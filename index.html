@@ -13,36 +13,38 @@
 <body>
     <h1>TFL App</h1>
 
-    <div id="container-div">
+    <div>
         <!-- Display user selection text in this div -->
         <div id="display-text"></div>
 
         <!-- Form for collecting user origin and destination choices -->
         <form id="search-form">
+            <div id="search-options">
+                <!-- Origin dropdown is visible from the start. -->
+                <select name="origin" class="dropdown" id="origin-list" form="search-form">
+                    <option value="" data-naptan-id="" data-station-naptan="" data-line-id="" selected hidden>
+                        Select Origin
+                    </option> 
+                </select>
 
-            <!-- Origin dropdown is visible from the start. -->
-            <select name="origin" class="dropdown" id="origin-list" form="search-form">
-                <option value="" data-naptan-id="" data-station-naptan="" data-line-id="" selected hidden>
-                    Select Origin
-                </option> 
-            </select>
-
-            <!-- Destination dropdown hidden by default. JS display it after origin has been selected. -->
-            <select name="destination" class="dropdown" id="destination-list" form="search-form" hidden>
-                <option value="" data-naptan-id="" data-station-naptan="" data-line-id="" selected hidden>
-                    Select Destination
-                </option> 
-        </select>
-            <!-- Submit button hidden by default. JS displays it after origin and destination have been selected. -->
-            <button class="btn" id="submit-btn" hidden>
-                Click
+                <!-- Destination dropdown hidden by default. JS display it after origin has been selected. -->
+                <select name="destination" class="dropdown" id="destination-list" form="search-form" hidden>
+                    <option value="" data-naptan-id="" data-station-naptan="" data-line-id="" selected hidden>
+                        Select Destination
+                    </option> 
+                </select>
+                <!-- Submit button hidden by default. JS displays it after origin and destination have been selected. -->
+                <button class="btn" id="submit-btn" hidden>
+                    Click
+                </button>
+            </div>
+                <!-- Reset button hidden by default. JS displays it after journey is displayed. -->
+            <button class="btn" id="reset-btn" type="reset" hidden>
+                Reset
             </button>
         </form>
     </div>
-    <!-- Reset button hidden by default. JS displays it after journey is displayed. -->
-    <button class="btn" id="reset-btn" hidden>
-        Reset
-    </button>
+
 
 
     <!-- import axios library to make http requests -->

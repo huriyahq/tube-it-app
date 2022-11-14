@@ -1,15 +1,12 @@
-function onReset(destinationDD, displayText, submitBtn, searchOptions) {
+function onReset() {
     const resetBtn = document.getElementById("reset-btn");
-
-    // Display the reset button.
-    resetBtn.attributes.hidden ? resetBtn.removeAttribute("hidden") : "";
     // When reset button is clicked, it resets all form values, hides destination dropdown and submit button and shows origin dropdown.
     resetBtn.addEventListener("click", () => {
-        destinationDD.hidden = true;
-        displayText.innerHTML = "";
-        submitBtn.hidden = true;
-        searchOptions.hidden = false;
-        resetBtn.hidden = true;
+        document.getElementById("destination-list").hidden = true;
+        document.getElementById("header-text").innerHTML = "Select an origin station";
+        document.getElementById("submit-btn").hidden = true;
+        document.getElementById("search-options").classList.remove("hidden");
+        document.getElementById("search-result").classList.add("hidden");
     });
 };
 

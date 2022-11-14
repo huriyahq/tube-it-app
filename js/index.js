@@ -2,7 +2,9 @@ import { populateDD } from "./helpers/populateDD.js";
 import { onSubmit } from "./helpers/onSubmit.js";
 // Imported functions listed above this comment.
 
-// Get origin dropdown list and destination dropdown list to pass as arguments.
+// Get origin dropdown list and destination dropdown list.
+const headerText = document.getElementById("header-text");
+const searchForm = document.getElementById("search-form");
 const originDD = document.getElementById("origin-list");
 const destinationDD = document.getElementById("destination-list");
 
@@ -10,37 +12,18 @@ const destinationDD = document.getElementById("destination-list");
 populateDD(originDD);
 populateDD(destinationDD);
 
-// Function to track selection when it's changed on dropdown list. Takes dropdown list as argument.
-function setSelection (dropdown) {
+searchForm.addEventListener("change", (e) => {
+        const originName = originDD.options[originDD.selectedIndex].value;
+        const destinationName = destinationDD.options[destinationDD.selectedIndex].value;
 
-    // Get empty div for displaying text about user selection.
-    let displayText = document.getElementById("display-text");
+        // Display text to tell the user which origin station they have selected.
+        headerText.innerHTML = `You selected ${originName}`;
 
-    dropdown.addEventListener("change", (e) => {
-        // Declare empty variables to use in function.
-        let commonName, stationNaptan, naptanId, lineId;
-
-        // Get the commonName, naptanId, stationNaptan and lineId of the selected item from the list.
-        commonName = e.target.options[e.target.selectedIndex].value;
-        naptanId = e.target.options[e.target.selectedIndex].dataset.naptanId;
-        stationNaptan = e.target.options[e.target.selectedIndex].dataset.stationNaptan;
-        lineId = e.target.options[e.target.selectedIndex].dataset.lineId;
-
-        // Display text to tell the user which station they have selected.
-        displayText.innerHTML = `You selected ${commonName}`;
-
-        // Check if all option attributes are working in console.
-        // console.log(commonName, stationNaptan, naptanId, lineId);
-
-        // Show destination dropdown only if the user has selected something from the origin dropdown. Otherwise do nothing (keeps destination dropdown hidden).
+        // Show destination dropdown if the user has selected something from the origin dropdown. Otherwise do nothing (keeps destination dropdown hidden).
         originDD.value ? destinationDD.removeAttribute("hidden") : "";
+        // Display text to tell the user which stations they have selected.
+        destinationDD.value ? headerText.innerHTML = `You selected ${originName} to ${destinationName}` : `You selected ${originName}`;
         
         // Call onSubmit() to display submit button if values for origin and destination are not false. Otherwise do nothing (keeps submit button hidden).
         originDD.value && destinationDD.value ? onSubmit(originDD, destinationDD) : "";
     });
-};
-
-// Call setSelection function passing origin and destination dropdown lists as arguments.
-setSelection(originDD);
-setSelection(destinationDD);
-

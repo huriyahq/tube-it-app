@@ -12,15 +12,18 @@
 </head>
 <body class="body">
 
-    <header class="container header">
-        <!-- This is the top section with the logo and header text -->
-        <img src="#" class="header__logo" alt="Tube It logo">
-        <h1 id="display-text" class="header__text">Select an origin station</h1>
+    <div id="logo" class="logo">
+        <img src="./assets/logo/tube-it-logo-text-small-01.svg" class="logo__img" alt="Tube It logo">
+    </div>
+
+    <header id="header" class="container header">
+        <h1 id="header-text" class="header__text">Select an origin station</h1>
     </header>
 
     <main class="container main">
          <!-- Form for collecting user origin and destination choices -->
          <form id="search-form" class="form">
+
             <!-- Everything in search-options div will be hidden when submit-btn is clicked. -->
             <div id="search-options" class="form__options">
                 <!-- Origin dropdown is visible from the start. -->
@@ -29,23 +32,32 @@
                         Select Origin
                     </option> 
                 </select>
-
                 <!-- Destination dropdown hidden by default. JS display it after origin has been selected. -->
                 <select name="destination" class="form__dropdown" id="destination-list" form="search-form" hidden>
                     <option value="" data-naptan-id="" data-station-naptan="" data-line-id="" selected hidden>
                         Select Destination
                     </option> 
                 </select>
+
                 <!-- Submit button hidden by default. JS displays it after origin and destination have been selected. -->
-                <button class="btn" id="submit-btn" hidden>
-                    Click
+                <button class="search-btn" id="submit-btn" hidden>
+                    <img src="assets/icons/magnifying-glass-solid.svg" alt="search" class="btn-icon">
                 </button>
             </div>
-                <!-- Reset button hidden by default. JS displays it after journey is displayed. -->
-            <button class="btn" id="reset-btn" type="reset" hidden>
-                Reset
-            </button>
         </form>
+
+        <div id="result" class="container result hidden">
+            <div id="result-visual" class="result__visual">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis laborum eius sequi hic laboriosam doloremque perspiciatis libero tenetur cupiditate in, voluptatem blanditiis eaque ad! Harum quo cupiditate vero iste dignissimos.</p>
+                <!-- Journey shown here -->
+            </div>
+            <div id="result-textarea" class="container result__textarea">
+                <p id="result-text" class="result__text">Lalala</p>
+                <button class="reset-btn" id="reset-btn" type="reset" value="reset">
+                    New Search
+                </button>
+            </div>
+        </div>
     </main>
 
     <!-- import axios library to make http requests -->

@@ -30,7 +30,7 @@ function setSelection (dropdown) {
         displayText.innerHTML = `You selected ${commonName}`;
 
         // Check if all option attributes are working in console.
-        console.log(commonName, stationNaptan, naptanId, lineId);
+        // console.log(commonName, stationNaptan, naptanId, lineId);
 
         // Show destination dropdown only if the user has selected something from the origin dropdown. Otherwise do nothing (keeps destination dropdown hidden).
         originDD.value ? destinationDD.removeAttribute("hidden") : "";

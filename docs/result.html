@@ -7,7 +7,7 @@
     <link rel="icon" type="image/x-icon" href="#">
     <!-- Add favicon here -->
     <!-- External stylesheet -->
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <title>TFL App</title>
 </head>
 <body>
@@ -15,12 +15,20 @@
 
     <div>
         <!-- Display user journey in this div -->
-        <div id="display-text"></div>
+        <div id="display-journey">
+
         </div>
+        <div>
+            <!-- Reset button hidden by default. JS displays it after journey is displayed. -->
+            <button class="btn" id="reset-btn">
+                Reset
+            </button>
+        </div>
+    </div>
 
     <!-- import axios library to make http requests -->
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <!-- External JavaScript -->
-    <script type="module" src="./js/index.js"></script>
+    <script type="module" src="../js/index.js"></script>
 </body>
 </html>

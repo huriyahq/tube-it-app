@@ -6,7 +6,7 @@ async function populateDD(dropdown) {
         // const lineIds = ["bakerloo", "central", "circle", "district", "hammersmith-city", "jubilee", "metropolitan", "northern", "piccadilly", "victoria", "waterloo-city"];
         
         // Use this array when testing. (Comment out when not testing).
-        const lineIds = ["bakerloo"];
+        const lineIds = ["bakerloo", "central"];
 
         for ( let i = 0; i < lineIds.length; i++ ) {
             // Loop through lineIds, get a single id and store it in a lineId variable.

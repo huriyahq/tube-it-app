@@ -1,42 +1,47 @@
+// import { journey } from "./journey.js";
+
 function onSubmit () {
+    // Get submit button, reset button, search form and display text div.
     const submitBtn = document.getElementById("submit-btn");
+    const resetBtn = document.getElementById("reset-btn");
+    const searchForm = document.getElementById("search-form");
+    const displayText = document.getElementById("display-text");
+
     // When this function is called, remove the hidden attribute from submitBtn.
     submitBtn.attributes.hidden ? submitBtn.removeAttribute("hidden") : "";
 
-    // Get entire search form, origin dropdown and destination dropdown.
-    const searchForm = document.getElementById("search-form");
-    const origin = document.getElementById("origin-list");
-    const destination = document.getElementById("destination-list");
 
-    // Create empty variables for origin/destination names, ids and lines.
-    let  originName, destinationName, originId, destinationId, originLine, destinationLine;
+    // When the form is submitted, run this function.
+        searchForm.addEventListener("submit", (e) => {
+            // Prevent default form submit behaviour.
+            e.preventDefault();
+    
+            // Get values and attributes for selected origin and destination.
+            const origin = document.getElementById("origin-list");
+            const originName = origin.options[origin.selectedIndex].value;
+            const originId = origin.options[origin.selectedIndex].getAttribute("data-naptan-id");
+            const originLine = origin.options[origin.selectedIndex].getAttribute("data-line-id");
+            
+            const destination = document.getElementById("destination-list");
+            const destinationName = destination.options[destination.selectedIndex].value;
+            const destinationId = destination.options[destination.selectedIndex].getAttribute("data-naptan-id");
+            const destinationLine = destination.options[destination.selectedIndex].getAttribute("data-line-id");
 
-    // This function runs when the form is submitted via the submit button.
-    searchForm.addEventListener("submit", (e) => {
-        // Prevent default form submit behaviour.
-        e.preventDefault();
+            // Hide the search form.
+            searchForm.attributes.hidden ? searchForm.addAttribute("hidden") : "";
 
-        // On submit, get origin and destination names, ids and lines.
-        originName = origin.options[origin.selectedIndex].value;
-        originId = origin.options[origin.selectedIndex].getAttribute("data-naptan-id");
-        originLine = origin.options[origin.selectedIndex].getAttribute("data-line-id");
+            // Compare if destination and origin ids share same lineIds.
+            if (originLine === destinationLine) {
+                // If the origin and destination are on the same line, then the destination can be reached directly from that line.
+                displayText.innerHTML = `You can travel from ${originName} to ${destinationName} directly via the ${originLine} line.`
+            } else {
+                // Otherwise the destination cannot be reached directly.
+                displayText.innerHTML = `There is no direct route from ${originName} to ${destinationName}.`
+                };
+            
+            resetBtn.attributes.hidden ? resetBtn.removeAttribute("hidden") : "";
 
-        destinationName = destination.options[destination.selectedIndex].value;
-        destinationId = destination.options[destination.selectedIndex].getAttribute("data-naptan-id");
-        destinationLine = destination.options[destination.selectedIndex].getAttribute("data-line-id");
+        });
+    };
 
-        // Console.log to check if data is coming through correctly.
-        // console.log(`Origin is ${originName}, ${originId}. It is on the ${originLine} line. Destination is ${destinationName}, ${destinationId}. It is on the ${destinationLine} line`);
-
-        // Compare if destination and origin ids share same lineIds.
-        if (originLine === destinationLine) {
-            // If the origin and destination are on the same line, then the destination can be reached directly from that line.
-            console.log(`You can travel from ${originName} to ${destinationName} directly via the ${originLine} line.`);
-        } else {
-            // Otherwise the destination cannot be reached directly.
-            console.log(`There is no direct route from ${originName} to ${destinationName}.`);
-        };
-    });
-};
-
-export { onSubmit };
+export { onSubmit  };

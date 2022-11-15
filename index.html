@@ -10,69 +10,71 @@
     <link rel="stylesheet" href="./css/styles.css">
     <title>TFL App</title>
 </head>
-<body class="body">
-
-    <div id="logo" class="logo">
-        <img src="./assets/logo/tube-it-logo-text-small-01.svg" class="logo__img" alt="Tube It logo">
-    </div>
-
-    <header id="header" class="container header">
-        <h1 id="header-text" class="header__text">Select an origin station</h1>
+<body>
+<div class="container">
+    <header id="header-section" class="show-header">
+        <div id="logo" class="logo">
+            <img src="./assets/logo/tube-it-logo-text-small-01.svg" class="logo__img" alt="Tube It logo">
+        </div>
+        <div id="header" class="header__content">
+            <h1 id="header-text" class="header__text">Select your origin station</h1>
+        </div>
     </header>
 
-    <main class="container main">
+    <main class="main">
          <!-- Form for collecting user origin and destination choices -->
-         <form id="search-form" class="form">
-
+         <form id="form" class="">
             <!-- Everything in search-options div will be hidden when submit-btn is clicked. -->
-            <div id="search-options" class="form__options">
+            <div id="form-options" class="form__options">
                 <!-- Origin dropdown is visible from the start. -->
-                <select name="origin" class="form__dropdown" id="origin-list" form="search-form">
+                <select id="origin-list" name="origin" form="form" class="select">
                     <option value="" data-naptan-id="" data-station-naptan="" data-line-id="" selected hidden>
                         Select Origin
                     </option> 
                 </select>
                 <!-- Destination dropdown hidden by default. JS display it after origin has been selected. -->
-                <select name="destination" class="form__dropdown" id="destination-list" form="search-form" hidden>
+                <select id="destination-list" name="destination" form="form" class="select hidden">
                     <option value="" data-naptan-id="" data-station-naptan="" data-line-id="" selected hidden>
                         Select Destination
                     </option> 
                 </select>
-
-                <!-- Submit button hidden by default. JS displays it after origin and destination have been selected. -->
-                <button class="search-btn" id="submit-btn" hidden>
-                    <img src="assets/icons/magnifying-glass-solid.svg" alt="search" class="btn-icon">
-                </button>
             </div>
+            <!-- Submit button hidden by default. JS displays it after origin and destination have been selected. -->
+            <button id="submit-btn" class="submit-btn hidden">
+                <img src="assets/icons/magnifying-glass-solid.svg" alt="search" class="submit-icon">
+            </button>
         </form>
 
-        <div id="result" class="container result hidden">
-            <div id="result-visual" class="result__visual">
-                <!-- Journey shown here -->
-                <div id="origin-visual" class="result__point">
-                    <div class="result__marker origin"></div>
-                    <p id="result-origin">Station Name</p>
-                </div>
+        <div id="journey" class="journey hidden">
+            <div id="jvisual-container" class="jvisual-container">
+                <div id="jv" class="jv">
+                    <div id="jv-line" class="jv__line"></div>
+                    <div class="jv__content">
+                        <div class="jv__marker"></div>
+                        <div class="jv__station">
+                            <h3 id="jv__origin">Origin Station Name</h3>
+                        </div>
+                    </div>
 
-                <div id="result-line" class="result__line"></div>
-
-                <div id="destination-visual" class="result__point">
-                    <div class="result__marker destination"></div>
-                    <p id="result-destination">Station Name</p>
+                    <div class="jv__content">
+                        <div class="jv__marker"></div>
+                        <div class="jv__station">
+                            <h3 id="jv__destination">Destination Station Name</h3>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div id="result-textarea" class="container result__textarea">
-                <p id="result-text" class="result__text">Lalala</p>
-                <button class="reset-btn" id="reset-btn" type="reset" value="reset">
-                    New Search
-                </button>
+            <div class="j-textbox">
+                <p id="j-textbox__text">This is the text</p>
+                <button id="reset-btn" class="reset-btn" type="reset" value="reset" form="form">New Search</button>
             </div>
-        </div>
+    </div>
     </main>
-
+</div>
     <!-- import axios library to make http requests -->
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <!-- External JavaScript -->
     <script type="module" src="./js/index.js"></script>
+
 </body>
 </html>

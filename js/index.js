@@ -4,7 +4,7 @@ import { onSubmit } from "./helpers/onSubmit.js";
 
 // Get origin dropdown list and destination dropdown list.
 const headerText = document.getElementById("header-text");
-const searchForm = document.getElementById("search-form");
+const form = document.getElementById("form");
 const originDD = document.getElementById("origin-list");
 const destinationDD = document.getElementById("destination-list");
 
@@ -12,7 +12,7 @@ const destinationDD = document.getElementById("destination-list");
 populateDD(originDD);
 populateDD(destinationDD);
 
-searchForm.addEventListener("change", (e) => {
+form.addEventListener("change", (e) => {
         const originName = originDD.options[originDD.selectedIndex].value;
         const destinationName = destinationDD.options[destinationDD.selectedIndex].value;
 
@@ -20,7 +20,7 @@ searchForm.addEventListener("change", (e) => {
         headerText.innerHTML = `You selected ${originName}`;
 
         // Show destination dropdown if the user has selected something from the origin dropdown. Otherwise do nothing (keeps destination dropdown hidden).
-        originDD.value ? destinationDD.removeAttribute("hidden") : "";
+        originDD.value ? destinationDD.classList.remove("hidden") : "";
         // Display text to tell the user which stations they have selected.
         destinationDD.value ? headerText.innerHTML = `You selected ${originName} to ${destinationName}` : `You selected ${originName}`;
         

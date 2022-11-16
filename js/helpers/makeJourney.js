@@ -1,5 +1,0 @@
-// function makeJourney() {
-
-// }
-
-// export { makeJourney };

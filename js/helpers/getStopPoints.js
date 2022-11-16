@@ -1,5 +1,4 @@
 import { lines } from "./lines.js";
-// Imported functions listed above this comment.
 
 // Async function to get data for dropdown and to append that data to the select element.
 // Accepts dropdown argument to use for generating a dropdown list.

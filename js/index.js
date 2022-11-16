@@ -1,6 +1,5 @@
 import { getStopPoints } from "./helpers/getStopPoints.js";
-import { handleSubmit } from "./helpers/handleFunctions.js";
-// Imported functions listed above this comment.
+import { handleSubmit } from "./helpers/eventHandlers.js";
 
 document.forms["form"].addEventListener("change", () => {
 

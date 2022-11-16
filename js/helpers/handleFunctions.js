@@ -1,3 +1,5 @@
+import { setLineColour } from "./setLineColour.js";
+
 const form = document.forms["form"];
 const search = document.getElementById("btn_search");
 const selectDeparture = form.departure;
@@ -20,25 +22,24 @@ function handleSubmit(e) {
 
     if ((departureStation !== "") && (destinationStation !== "")) {
         // If both fields are filled in, do this:
-        // Hide form, change header background to transparent, remove header text.
+        const departure = document.getElementById("journey__station_departure");
+        const destination = document.getElementById("journey__station_destination");
+        const journeyText = document.getElementById("journey__box__text");
+
         form.classList.add("hide");
         header.classList.replace("header", "header_transparent");
         headerText.innerText = "";
-        
-        // Show journey element
-        journey.classList.remove("hide");
+        journey.classList.replace("journey_hide", "journey_show");
         
         if (departureLine === destinationLine) {
-            const departure = document.getElementById("journey__station_departure");
-            const destination = document.getElementById("journey__station_destination");
-            const journeyText = document.getElementById("journey__box__text");
-
             document.getElementById("btn_reset").addEventListener("click", handleReset);
-
+            setLineColour(departureLine);
             departure.innerText = `${departureStation}`;
             destination.innerText = `${destinationStation}`;
             return journeyText.innerText = `You can travel from ${departureStation} to ${destinationStation} directly via the ${departureLine} line.`;
         } else {
+            departure.innerText = `${departureStation}`;
+            destination.innerText = `${destinationStation}`;
             return journeyText.innerText = `There is no direct route from ${departureStation} to ${destinationStation}.`;
         }
     } else {
@@ -49,12 +50,12 @@ function handleSubmit(e) {
 
 function handleReset() {
     // Reset all form values and displayed/hidden elements.
+    journey.classList.replace("journey_show", "journey_hide");
     form.classList.remove("hide");
     form.reset();
 
     selectDestination.classList.add("hide");
     search.classList.add("hide");
-    journey.classList.add("hide");
     header.classList.replace("header_transparent", "header");
     headerText.innerText = "Where are you leaving from?";
    };

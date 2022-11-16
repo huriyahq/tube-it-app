@@ -18,7 +18,6 @@ document.forms["form"].addEventListener("change", () => {
             search.classList.remove("hide");
             search.addEventListener("click", handleSubmit);
             return headerText.innerText = `You've selected ${selectDeparture.value} to ${selectDestination.value}`;
-            // return onSubmit(form, selectDeparture, selectDestination);
         } else {
             return headerText.innerText = "Where are you leaving from?";
         }

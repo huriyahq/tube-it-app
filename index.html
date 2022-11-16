@@ -12,62 +12,60 @@
 </head>
 <body>
 <div class="container">
-    <header id="header-section" class="show-header">
-        <div id="logo" class="logo">
-            <img src="./assets/logo/tube-it-logo-text-small-01.svg" class="logo__img" alt="Tube It logo">
+    <header id="header" class="header">
+        <div id="header__logo" class="header__logo">
+            <img src="./assets/logo/tube-it-logo-text-small-01.svg" alt="Tube It logo">
         </div>
-        <div id="header" class="header__content">
-            <h1 id="header-text" class="header__text">Select your origin station</h1>
-        </div>
+        <h1 id="header__text">Where are you leaving from?</h1>
     </header>
 
     <main class="main">
          <!-- Form for collecting user origin and destination choices -->
-         <form id="form" class="">
+         <form id="form">
             <!-- Everything in search-options div will be hidden when submit-btn is clicked. -->
-            <div id="form-options" class="form__options">
+            <div class="form__select_wrapper">
                 <!-- Origin dropdown is visible from the start. -->
-                <select id="origin-list" name="origin" form="form" class="select">
-                    <option value="" data-naptan-id="" data-station-naptan="" data-line-id="" selected hidden>
-                        Select Origin
+                <select id="departure" name="departure" form="form" class="form__select">
+                    <option value="" selected hidden>
+                        Select Departure
                     </option> 
                 </select>
                 <!-- Destination dropdown hidden by default. JS display it after origin has been selected. -->
-                <select id="destination-list" name="destination" form="form" class="select hidden">
-                    <option value="" data-naptan-id="" data-station-naptan="" data-line-id="" selected hidden>
+                <select id="destination" name="destination" form="form" class="form__select hide">
+                    <option value="" selected hidden>
                         Select Destination
                     </option> 
                 </select>
             </div>
             <!-- Submit button hidden by default. JS displays it after origin and destination have been selected. -->
-            <button id="submit-btn" class="submit-btn hidden">
-                <img src="assets/icons/magnifying-glass-solid.svg" alt="search" class="submit-icon">
+            <button id="btn_search" class="btn_search hide" value="search">
+                <img src="assets/icons/magnifying-glass-solid.svg" alt="search">
             </button>
         </form>
 
-        <div id="journey" class="journey hidden">
-            <div id="jvisual-container" class="jvisual-container">
-                <div id="jv" class="jv">
-                    <div id="jv-line" class="jv__line"></div>
-                    <div class="jv__content">
-                        <div class="jv__marker"></div>
-                        <div class="jv__station">
-                            <h3 id="jv__origin">Origin Station Name</h3>
+        <div id="journey" class="hide">
+            <div class="journey_wrapper">
+                <!-- <div> -->
+                    <div id="journey__line" class="journey__line"></div>
+                    <div class="journey__content">
+                        <div class="journey__marker"></div>
+                        <div class="journey__station">
+                            <h2 id="journey__station_departure">Origin Station Name</h2>
                         </div>
                     </div>
 
-                    <div class="jv__content">
-                        <div class="jv__marker"></div>
-                        <div class="jv__station">
-                            <h3 id="jv__destination">Destination Station Name</h3>
+                    <div class="journey__content">
+                        <div class="journey__marker"></div>
+                        <div class="journey__station">
+                            <h2 id="journey__station_destination">Destination Station Name</h2>
                         </div>
                     </div>
-                </div>
+            <!-- </div> -->
+            <div class="journey__box">
+                <p id="journey__box__text">This is the text</p>
+                <button id="btn_reset" class="btn_reset" value="reset">New Search</button>
             </div>
-            <div class="j-textbox">
-                <p id="j-textbox__text">This is the text</p>
-                <button id="reset-btn" class="reset-btn" type="reset" value="reset" form="form">New Search</button>
-            </div>
+        </div>
     </div>
     </main>
 </div>

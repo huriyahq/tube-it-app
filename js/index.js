@@ -1,29 +1,25 @@
-import { populateDD } from "./helpers/populateDD.js";
-import { onSubmit } from "./helpers/onSubmit.js";
+import { getStopPoints } from "./helpers/getStopPoints.js";
+import { handleSubmit } from "./helpers/handleFunctions.js";
 // Imported functions listed above this comment.
 
-// Get origin dropdown list and destination dropdown list.
-const headerText = document.getElementById("header-text");
-const form = document.getElementById("form");
-const originDD = document.getElementById("origin-list");
-const destinationDD = document.getElementById("destination-list");
+document.forms["form"].addEventListener("change", () => {
 
-// Call the populateDD function to get data for the dropdown lists. This will add list of stations to the dropdown list passed as argument.
-populateDD(originDD);
-populateDD(destinationDD);
-
-form.addEventListener("change", (e) => {
-        const originName = originDD.options[originDD.selectedIndex].value;
-        const destinationName = destinationDD.options[destinationDD.selectedIndex].value;
-
-        // Display text to tell the user which origin station they have selected.
-        headerText.innerHTML = `You selected ${originName}`;
-
-        // Show destination dropdown if the user has selected something from the origin dropdown. Otherwise do nothing (keeps destination dropdown hidden).
-        originDD.value ? destinationDD.classList.remove("hidden") : "";
-        // Display text to tell the user which stations they have selected.
-        destinationDD.value ? headerText.innerHTML = `You selected ${originName} to ${destinationName}` : `You selected ${originName}`;
+        const search = document.getElementById("btn_search");
+        const selectDeparture = document.forms["form"].departure;
+        const selectDestination = document.forms["form"].destination;
+        const headerText = document.getElementById("header__text");
         
-        // Call onSubmit() to display submit button if values for origin and destination are not false. Otherwise do nothing (keeps submit button hidden).
-        originDD.value && destinationDD.value ? onSubmit(originDD, destinationDD) : "";
+        if ((selectDeparture.value !== "") && (selectDestination.value == "")) {
+              // If departure is selected but destination isn't, do this:
+            selectDestination.classList.remove("hide");
+            return headerText.innerText = `You selected ${selectDeparture.value}. Where would you like to go?`;
+        } else if ((selectDeparture.value !== "") && (selectDestination.value !== "")) {
+            // If departure and destination are selected, do this:
+            search.classList.remove("hide");
+            search.addEventListener("click", handleSubmit);
+            return headerText.innerText = `You've selected ${selectDeparture.value} to ${selectDestination.value}`;
+            // return onSubmit(form, selectDeparture, selectDestination);
+        } else {
+            return headerText.innerText = "Where are you leaving from?";
+        }
     });

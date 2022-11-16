@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="#">
+    <title>Form Test</title>
+</head>
+<body>
+    
+    <header>
+        <h1>Form Test</h1>
+    </header>
+
+    <main>
+        <form id="form">
+            <!-- Everything in search-options div will be hidden when submit-btn is clicked. -->
+            <div class="form__select--wrapper">
+                <!-- Origin dropdown is visible from the start. -->
+                <select id="departure" name="departure" form="form" class="form__select">
+                    <option value="" selected hidden>Select Origin</option>
+                    <option value="Station One" data-naptan-id="100000" data-line-name="Bakerloo" data-station-naptan="100000a">Station 1</option>
+                    <option value="Station Two" data-naptan-id="200000" data-line-name="Circle" data-station-naptan="200000a">Station 2</option> 
+                </select>
+                <!-- Destination dropdown hidden by default. JS display it after origin has been selected. -->
+                <select id="destination" name="destination" form="form" class="form__select">
+                    <option value="" selected hidden>Select Destination</option> 
+                    <option value="Station Three" data-naptan-id="300000" data-line-name="Bakerloo" data-station-naptan="300000a">Station 3</option>
+                    <option value="Station Four" data-naptan-id="400000" data-line-name="Circle" data-station-naptan="400000a">Station 4</option>
+                </select>
+            </div>
+            <!-- Submit button hidden by default. JS displays it after origin and destination have been selected. -->
+            <button id="search" class="btn--search" value="search">Submit
+            </button>
+        </form>
+
+        <div id="display">
+
+        </div>
+    </main>
+
+    <script src="./submitEvent.js"></script>
+</body>
+</html>

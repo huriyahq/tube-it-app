@@ -22,7 +22,7 @@ function setLineColour(line) {
         case "Jubilee":
             colour = lines[5].colour;
         break;
-        case "Metropolita":
+        case "Metropolitan":
             colour = lines[6].colour;
         break;
         case "Northern":

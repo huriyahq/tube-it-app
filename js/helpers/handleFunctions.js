@@ -18,6 +18,8 @@ function handleSubmit(e) {
 
     const destinationStation = selectDestination.value;
     const destinationLine = selectDestination.options[selectDestination.selectedIndex].getAttribute("data-line-name");
+
+    const journeyWrapper = document.getElementById("journey_wrapper");
     // let destinationNaptanId = selectDestination.options[selectDestination.selectedIndex].getAttribute("data-naptan-id");
 
     if ((departureStation !== "") && (destinationStation !== "")) {
@@ -30,6 +32,8 @@ function handleSubmit(e) {
         header.classList.replace("header", "header_transparent");
         headerText.innerText = "";
         journey.classList.replace("journey_hide", "journey_show");
+        journeyWrapper.classList.replace("journey_hide", "journey_show");
+
         
         if (departureLine === destinationLine) {
             document.getElementById("btn_reset").addEventListener("click", handleReset);
@@ -38,8 +42,9 @@ function handleSubmit(e) {
             destination.innerText = `${destinationStation}`;
             return journeyText.innerText = `You can travel from ${departureStation} to ${destinationStation} directly via the ${departureLine} line.`;
         } else {
-            departure.innerText = `${departureStation}`;
-            destination.innerText = `${destinationStation}`;
+            journeyWrapper.classList.replace("journey_show", "journey_hide");
+            // departure.innerText = `${departureStation}`;
+            // destination.innerText = `${destinationStation}`;
             return journeyText.innerText = `There is no direct route from ${departureStation} to ${destinationStation}.`;
         }
     } else {

@@ -21,3 +21,5 @@ document.forms["form"].addEventListener("change", () => {
             return headerText.innerText = "Where are you leaving from?";
         }
     });
+
+    

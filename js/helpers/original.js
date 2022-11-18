@@ -29,42 +29,32 @@ function handleSubmit(e) {
         const destination = document.getElementById("journey__station_destination");
         const journeyText = document.getElementById("journey__box__text");
 
-        // If the form is not hidden, hide it.
+        // form.classList.contains("hide") ?  "" : form.classList.add("hide");
         if (!hiddenForm) {
             form.classList.add("hide");
         }
-
-        // If the journey div is hidden, show it.
+        
         if (journeyClasses.contains("journey_hide")) {
             journeyClasses.remove("journey_hide");
             journeyClasses.add("journey_show");
         }
+        if (journeyWrapperClasses.contains("journey_hide")) {
+            journeyWrapperClasses.remove("journey_hide");
+            journeyWrapperClasses.add("journey_show");
+        }
 
-        // Make the header background transparent.
         header.classList.replace("header", "header_transparent");
-        // Remove header text.
         headerText.innerText = "";
-        // Add event listener to the reset button.
-        reset.addEventListener("click", handleReset);
+
         
         if (departureLine === destinationLine) {
-            // If the departure and destination station are on the same line, do this:
-
-            // Show the div that displays the journey.
-            journeyWrapperClasses.replace("journey_hide", "journey_show");
-
-            // Set colour of line.
+            reset.addEventListener("click", handleReset);
             setLineColour(departureLine);
-
-            // Use selected stations for displayed station names.
             departure.innerText = `${departureStation}`;
             destination.innerText = `${destinationStation}`;
-
-            // Return the journey text.
             return journeyText.innerText = `You can travel from ${departureStation} to ${destinationStation} directly via the ${departureLine} line.`;
         } else {
-            // Otherwise, do this:
-            // journeyWrapperClasses.replace("journey_show", "journey_hide");
+            journeyWrapperClasses.replace("journey_show", "journey_hide");
             return journeyText.innerText = `There is no direct route from ${departureStation} to ${destinationStation}.`;
         }
     } else {
@@ -76,28 +66,20 @@ function handleReset() {
     // Reset all form values and displayed/hidden elements.
     form.reset();
 
-    // Show the form again.
     form.classList.remove("hide");
 
-    // Hide the journey div again.
     if (journeyClasses.contains("journey_show")) {
         journeyClasses.remove("journey_show");
         journeyClasses.add("journey_hide");
     }
-
-    // If the journey was displayed, then hide it again.
     if (journeyWrapperClasses.contains("journey_show")) {
         journeyWrapperClasses.remove("journey_show");
         journeyWrapperClasses.add("journey_hide");
     }
 
-    // Hide the destination list.
     selectDestination.classList.add("hide");
-    // Hide the search button.
     search.classList.add("hide");
-    // Show header background again.
     header.classList.replace("header_transparent", "header");
-    // Add header text.
     headerText.innerText = "Where are you leaving from?";
    };
 

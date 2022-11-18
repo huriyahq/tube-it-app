@@ -9,11 +9,11 @@
     --clr-medium: #5a5d6e;
     --clr-dark: #1C1D22;
     --clr-medium-shadow: rgba(90, 93, 110, .15);
-    --fs-h1: clamp(2rem, 3vw + 1rem, 3rem);
+    --fs-h1: clamp(2rem, 3vw + 1rem, 2.8rem);
     --fs-h2: clamp(1.2rem, 1vw + 1rem, 1.4rem);
     --fs-body: clamp(1rem, 1vw + 1rem, 1.4rem);
-    --fs-button: clamp(1.4rem, 1vw + 1rem, 1.8rem);
-    --fs-select: clamp(1.2rem, 1vw + 1rem, 1.8rem);
+    --fs-button: clamp(1.4rem, 1vw + 1rem, 1.4rem);
+    --fs-select: clamp(1.2rem, 1vw + 1rem, 1.4rem);
 }
 
 *,
@@ -67,6 +67,7 @@ h2 {
 /* Header */
 header {
     width: 100%;
+    padding: 1.4em 2em;
 }
 
 .header {
@@ -83,7 +84,7 @@ header {
 }
 
 .header__logo > img {
-    width: clamp(150px, 50% + 1px, 350px);
+    width: clamp(150px, 50% + 1px, 250px);
     height: auto;
     align-self: flex-start;
 }
@@ -91,8 +92,7 @@ header {
 .header h1 {
     max-width: 600px;
     text-align: center;
-    margin: 0 auto;
-    padding: .5em 1em 1em 1em;
+    margin: 1em auto;
 }
 
 /* Main */
@@ -116,24 +116,24 @@ form {
 
 .form__select {
     background-color: var(--clr-light);
-    margin: 1.4em 0;
+    margin: 1.8em 0;
     border: none;
     border-right: .5em solid transparent;
     border-radius: 8px;
     font-weight: 600;
     font-size: var(--fs-select);
     letter-spacing: 2px;
-    padding: 1.4em .5em;
+    padding: 1em .5em;
     text-align: center;
     width: 80%;
 }
 
 .btn_search {
     background-color: var(--clr-main);
-    width: clamp(5rem, 12vw, 8rem); 
-    height: clamp(5rem, 12vw, 8rem); 
+    width: 5rem;
+    height: 5rem;
     aspect-ratio: 1 / 1;
-    padding: clamp(1.4em, 30px, 3em); 
+    padding: clamp(1em, 25px, 1.4em); 
     margin-bottom: 1.4em;
     border: none;
     border-radius: 50%;
@@ -152,7 +152,16 @@ form {
 }
 
 /* Form media queries */
+@media (min-width: 600px) {
+    .form__select {
+        width: 60%;
+    }
+}
+
 @media (min-width: 1000px) {
+    .form__select_wrapper {
+        width: 80%;
+    }
     .form__select {
         width: 50%;
     }

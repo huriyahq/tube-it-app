@@ -116,7 +116,7 @@ form {
 
 .form__select {
     background-color: var(--clr-light);
-    margin: 1.8em 0;
+    margin: 1.2em 0;
     border: none;
     border-right: .5em solid transparent;
     border-radius: 8px;

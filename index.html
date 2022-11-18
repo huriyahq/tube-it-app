@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Add favicon here -->
+    <!-- Favicon. -->
     <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
-    <!-- External stylesheet -->
+    <!-- External stylesheet. -->
     <link rel="stylesheet" href="./css/styles.css">
     <title>TFL App</title>
 </head>
@@ -16,59 +16,64 @@
         <div id="header__logo" class="header__logo">
             <img src="./assets/logo/tube-it-logo-text-small-01.svg" alt="Tube It logo">
         </div>
+        <!-- Text will change as user selects different options. -->
         <h1 id="header__text">Where are you leaving from?</h1>
     </header>
 
     <main class="main">
-         <!-- Form for collecting user origin and destination choices -->
+         <!-- Form inputs collect user departure and destination choices. -->
+         <!-- Form hidden when submitted. -->
          <form id="form">
-            <!-- Everything in search-options div will be hidden when submit-btn is clicked. -->
             <div class="form__select_wrapper">
-                <!-- Origin dropdown is visible from the start. -->
+                <!-- Departure list always visible at start. -->
                 <select id="departure" name="departure" form="form" class="form__select">
                     <option value="" selected hidden>
                         Select Departure
                     </option> 
                 </select>
-                <!-- Destination dropdown hidden by default. JS display it after origin has been selected. -->
+                <!-- Destination list hidden until departure selected. -->
                 <select id="destination" name="destination" form="form" class="form__select hide">
                     <option value="" selected hidden>
                         Select Destination
                     </option> 
                 </select>
             </div>
-            <!-- Submit button hidden by default. JS displays it after origin and destination have been selected. -->
+            <!-- Search button hidden until departure and destination selected. -->
             <button id="btn_search" class="btn_search hide" value="search">
                 <img src="assets/icons/magnifying-glass-solid.svg" alt="search">
             </button>
         </form>
 
+         <!-- This part is hidden and only shows after form is submitted -->
         <div id="journey" class="journey journey_hide">
+            <!-- This part is hidden and only shows user's journey if there's a direct route. -->
             <div id="journey_wrapper" class="journey_wrapper journey_hide">
                     <div id="journey__line" class="journey__line"></div>
                     <div class="journey__content">
                         <div class="journey__marker"></div>
                         <div class="journey__station">
-                            <h2 id="journey__station_departure">Origin Station Name</h2>
+                            <h2 id="journey__station_departure"></h2>
                         </div>
                     </div>
                     <div class="journey__content">
                         <div class="journey__marker"></div>
                         <div class="journey__station">
-                            <h2 id="journey__station_destination">Destination Station Name</h2>
+                            <h2 id="journey__station_destination"></h2>
                         </div>
                     </div>
                 </div>
+            <!-- This shows up at the bottom of the screen with message to confirm if there's a direct route or not. -->
             <div class="journey__box">
                 <p id="journey__box__text">This is the text</p>
+                <!-- Reset button lets user try a new search. -->
                 <button id="btn_reset" class="btn_reset" value="reset">New Search</button>
             </div>
         </div>
     </main>
 </div>
-    <!-- import axios library to make http requests -->
+    <!-- Import axios library to make http requests. -->
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-    <!-- External JavaScript -->
+    <!-- External JavaScript. -->
     <script type="module" src="./js/index.js"></script>
 
 </body>

@@ -124,7 +124,6 @@ form {
     color: var(--clr-dark);
     font-size: var(--fs-select);
     letter-spacing: 2px;
-    /* padding: 1em .5em; */
     text-align: center;
     width: 80%;
     outline: none;
@@ -184,16 +183,12 @@ form {
 
 .journey_wrapper {
     position: relative;
-    /* top: calc(20% - 1px); */
-    /* right: calc(10% - 1px); */
     left: calc(10% - 1px);
     width: 80%;
     flex-direction: column;
     align-items: flex-start;
-    /* gap: 50px; */
     justify-content: space-evenly;
     display: flex;
-    /* height: 50%; */
 }
 
 .journey_show {
@@ -273,8 +268,6 @@ form {
     width: 100%;
     position: absolute;
     bottom: 0;
-    /* left: 0;
-    right: 0; */
     box-shadow: 0 10px 25px var(--clr-medium-shadow);
 }
 

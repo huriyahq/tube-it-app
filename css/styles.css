@@ -116,7 +116,7 @@ form {
 
 .form__select {
     background-color: var(--clr-light);
-    margin: 1.2em 0;
+    margin: .8em 0;
     border: none;
     border-right: .5em solid transparent;
     border-radius: 8px;
@@ -194,6 +194,7 @@ form {
     gap: 50px;
     justify-content: space-evenly;
     display: flex;
+    height: 80%;
 }
 
 .journey_show {

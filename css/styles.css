@@ -176,12 +176,11 @@ form {
 }
 
 /* Journey  */
-/* .journey { */
-    /* flex-direction: column; */
-    /* align-items: flex-start; */
-    /* justify-content: center; */
-    /* height: 100%; */
-/* } */
+.journey {
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
 
 .journey_wrapper {
     position: relative;
@@ -191,10 +190,10 @@ form {
     width: 80%;
     flex-direction: column;
     align-items: flex-start;
-    gap: 50px;
+    /* gap: 50px; */
     justify-content: space-evenly;
     display: flex;
-    height: 80%;
+    /* height: 50%; */
 }
 
 .journey_show {
@@ -234,7 +233,6 @@ form {
 .journey__content {
     padding: 1em;
     margin-left: 2em;
-    /* position: relative; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -272,10 +270,11 @@ form {
     border-radius: 20px 20px 0 0;
     background-color: var(--clr-light);
     padding: 1em 2em;
+    width: 100%;
     position: absolute;
     bottom: 0;
-    left: 0;
-    right: 0;
+    /* left: 0;
+    right: 0; */
     box-shadow: 0 10px 25px var(--clr-medium-shadow);
 }
 

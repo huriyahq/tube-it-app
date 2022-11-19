@@ -215,7 +215,7 @@ form {
    width: 6px;
    top: 0;
    left: 0;
-   animation: top-to-bottom 1s linear forwards;
+   animation: top-to-bottom .5s linear forwards;
 }
 
 @keyframes top-to-bottom {
@@ -246,12 +246,12 @@ form {
     width: 1rem;
     border-radius: 50%;
     position: absolute;
-    animation: journey-content 1s ease-in forwards;
+    animation: journey-content .5s ease-in forwards;
 } 
 
 .journey__station,
 .journey__instructions {
-    animation: journey-content 1s ease-in forwards;
+    animation: journey-content .5s ease-in forwards;
 }
 
 @keyframes journey-content {

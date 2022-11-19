@@ -1,4 +1,4 @@
-import { getStopPoints } from "./helpers/getStopPoints.js";
+import { getStopPointNames } from "./helpers/getStopPointNames.js";
 import { handleSubmit } from "./helpers/eventHandlers.js";
 
 document.forms["form"].addEventListener("change", () => {
@@ -11,15 +11,14 @@ document.forms["form"].addEventListener("change", () => {
         if ((selectDeparture.value !== "") && (selectDestination.value == "")) {
               // If departure is selected but destination isn't, do this:
             selectDestination.classList.remove("hide");
-            return headerText.innerText = `You selected ${selectDeparture.value}. Where would you like to go?`;
+            return headerText.innerText = `You selected ${selectDeparture.value.slice(0, -20)}. Where would you like to go?`;
         } else if ((selectDeparture.value !== "") && (selectDestination.value !== "")) {
             // If departure and destination are selected, do this:
             search.classList.remove("hide");
             search.addEventListener("click", handleSubmit);
-            return headerText.innerText = `You've selected ${selectDeparture.value} to ${selectDestination.value}`;
+            return headerText.innerText = `You've selected ${selectDeparture.value.slice(0, -20)} to ${selectDestination.value.slice(0, -20)}`;
         } else {
             return headerText.innerText = "Where are you leaving from?";
         }
     });
 
-    

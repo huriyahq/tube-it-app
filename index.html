@@ -46,14 +46,19 @@
 
          <!-- This part is hidden and only shows after form is submitted -->
         <div id="journey" class="journey journey_hide">
-            <!-- This part is hidden and only shows user's journey if there's a direct route. -->
-            <div id="journey_wrapper" class="journey_wrapper journey_hide">
+            <div id="journey_wrapper" class="journey_wrapper">
+
                     <div id="journey__line" class="journey__line"></div>
+
                     <div class="journey__content">
                         <div class="journey__marker"></div>
                         <div class="journey__station">
                             <h2 id="journey__station_departure"></h2>
                         </div>
+                    </div>
+
+                    <div class="journey__content">
+                        <p id="journey__instructions" class="journey__instructions"></p>
                     </div>
                     <div class="journey__content">
                         <div class="journey__marker"></div>
@@ -61,10 +66,10 @@
                             <h2 id="journey__station_destination"></h2>
                         </div>
                     </div>
-                </div>
-            <!-- This shows up at the bottom of the screen with message to confirm if there's a direct route or not. -->
+            </div>
+            <!-- This shows up at the bottom of the screen. -->
             <div class="journey__box">
-                <p id="journey__box__text">This is the text</p>
+                <p id="journey__box__text"></p>
                 <!-- Reset button lets user try a new search. -->
                 <button id="btn_reset" class="btn_reset" value="reset">New Search</button>
             </div>

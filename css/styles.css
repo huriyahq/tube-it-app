@@ -189,6 +189,7 @@ form {
     align-items: flex-start;
     gap: 50px;
     justify-content: space-evenly;
+    display: flex;
 }
 
 .journey_show {
@@ -197,6 +198,10 @@ form {
 
 .journey_hide {
     display: none;
+}
+
+.journey__instructions {
+    font-size: var(--fs-body);
 }
 
 .journey__line {
@@ -236,7 +241,8 @@ form {
     animation: journey-content 1s ease-in forwards;
 } 
 
-.journey__station {
+.journey__station,
+.journey__instructions {
     animation: journey-content 1s ease-in forwards;
 }
 

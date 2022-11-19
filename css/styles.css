@@ -181,9 +181,9 @@ form {
 
 .journey_wrapper {
     position: absolute;
-    top: calc(20% - 1px);
+    /* top: calc(20% - 1px); */
+    /* right: calc(10% - 1px); */
     left: calc(10% - 1px);
-    right: calc(10% - 1px);
     height: 50%;
     flex-direction: column;
     align-items: flex-start;

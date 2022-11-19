@@ -124,9 +124,12 @@ form {
     color: var(--clr-dark);
     font-size: var(--fs-select);
     letter-spacing: 2px;
-    padding: 1em .5em;
+    /* padding: 1em .5em; */
     text-align: center;
     width: 80%;
+    outline: none;
+    max-height: calc(2.4em + 24px);
+    height: calc(2.4em + 24px);
 }
 
 .btn_search {

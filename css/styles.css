@@ -121,6 +121,7 @@ form {
     border-right: .5em solid transparent;
     border-radius: 8px;
     font-weight: 600;
+    color: var(--clr-dark);
     font-size: var(--fs-select);
     letter-spacing: 2px;
     padding: 1em .5em;

@@ -16,7 +16,7 @@ function makeSelect(select) {
     };
 }
 
-async function getStopPointNames(select) {
+async function getStopPointNames() {
     try {
             for ( let i = 0; i < lines.length; i++ ) {
             const lineId = lines[i].id;
